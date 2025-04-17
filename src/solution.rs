@@ -24,6 +24,7 @@ impl Solution for Solution0 {
                     match download(repo.clone()).await {
                         Ok(binary) => {
                             let _ = tx.send(binary);
+                            break;
                         }
                         Err(e) => {
                             println!("{e}. Retrying...");
